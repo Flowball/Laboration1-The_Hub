@@ -8,7 +8,7 @@ const roomBtns = document.getElementsByClassName("roomBtn");
 for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
     playerState.roomNr = e.target.id;
-    collectItemToInv("nubben");
+    // collectItemToInv("nubben");
     console.log(playerState.roomNr);
   });
 }
@@ -16,13 +16,25 @@ for (btn of roomBtns) {
 // INVENTORY & COLLECT
 const inventory = [];
 const invItem = document.querySelector("#inventoryDiv");
+const invModal = document.querySelector(".invModal");
 
 function collectItemToInv(itemName) {
-  inventory.push(itemName);
   const div = document.createElement("div");
-  div.textContent = itemName;
-  div.id = "invItem";
-  invItem.appendChild(div);
+  const itemInInvDiv = document.querySelector("invModal");
+  const itemToPickUp = document.querySelector("#itemToPickUp");
+
+  if (inventory.includes("knife")) {
+    console.log("already in inventory!");
+    itemInInvDiv.textContent = "ALREADY IN INVENTORY!";
+    itemInInvDiv.id = "invModal";
+    itemInInvDiv.appendChild(itemInInvDiv);
+  } else {
+    inventory.push(itemName);
+    div.textContent = itemName;
+    div.id = "invItem";
+    console.log(`ITEM PICKED: ${itemName}`);
+    invItem.appendChild(div);
+  }
 }
 // INVENTORY & COLLECT
 

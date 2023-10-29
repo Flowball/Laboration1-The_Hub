@@ -2,7 +2,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "IBM Plex Mono", monospace;
-  color: white;
+  /* color: white; */
 }
 body {
   background-color: #252629;
@@ -94,6 +94,9 @@ a {
 .hideMenu {
   left: 100%;
 }
+.hide {
+  display: none;
+}
 
 .red {
   color: red;
@@ -113,4 +116,17 @@ a {
 button {
   border: none;
   background-color: transparent;
+}
+
+.itemToPickUp img {
+  max-width: 100px;
+  position: absolute;
+  top: 0;
+}
+
+#invModal {
+  position: fixed;
+  color: red;
+  bottom: 6%;
+  right: 1%;
 }
