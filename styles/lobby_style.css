@@ -78,7 +78,8 @@ a {
   margin: 10px;
   bottom: 5%;
   width: 80%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
   padding: 10px;
   background-color: rgb(81, 80, 80);
   flex-wrap: nowrap;

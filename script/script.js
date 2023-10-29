@@ -3,20 +3,28 @@ const playerState = {
   inventorySlots: 5,
 };
 
-const inventory = [];
 const roomBtns = document.getElementsByClassName("roomBtn");
 
 for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
     playerState.roomNr = e.target.id;
+    collectItemToInv("nubben");
     console.log(playerState.roomNr);
   });
 }
-// Collect item!
-function collectItem(itemId) {
-  inventory.push(itemId);
+
+// INVENTORY & COLLECT
+const inventory = [];
+const invItem = document.querySelector("#inventoryDiv");
+
+function collectItemToInv(itemName) {
+  inventory.push(itemName);
+  const div = document.createElement("div");
+  div.textContent = itemName;
+  div.id = "invItem";
+  invItem.appendChild(div);
 }
-// Collect item!
+// INVENTORY & COLLECT
 
 //SHOW INVENTORY
 const inventoryBox = document.querySelector("#inventoryDiv");
