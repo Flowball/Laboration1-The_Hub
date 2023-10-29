@@ -1,31 +1,22 @@
 const playerState = {
-  roomNr: 1,
+  roomNr: 0,
   inventorySlots: 5,
 };
 
-// LOOPA IGENOM DETTA ?
-const room1 = document.querySelector("#room1");
-const room2 = document.querySelector("#room2");
-const room3 = document.querySelector("#room3");
-const room4 = document.querySelector("#room4");
+const inventory = [];
+const roomBtns = document.getElementsByClassName("roomBtn");
 
-room1.addEventListener("click", () => {
-  playerState.roomNr = 1;
-  console.log(playerState.roomNr);
-});
-room2.addEventListener("click", () => {
-  playerState.roomNr = 2;
-  console.log(playerState.roomNr);
-});
-room3.addEventListener("click", () => {
-  playerState.roomNr = 3;
-  console.log(playerState.roomNr);
-});
-room4.addEventListener("click", () => {
-  playerState.roomNr = 4;
-  console.log(playerState.roomNr);
-});
-// LOOPA IGENOM DETTA ?
+for (btn of roomBtns) {
+  btn.addEventListener("click", (e) => {
+    playerState.roomNr = e.target.id;
+    console.log(playerState.roomNr);
+  });
+}
+// Collect item!
+function collectItem(itemId) {
+  inventory.push(itemId);
+}
+// Collect item!
 
 //SHOW INVENTORY
 const inventoryBox = document.querySelector("#inventoryDiv");
