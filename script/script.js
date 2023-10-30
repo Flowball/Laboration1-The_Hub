@@ -20,23 +20,31 @@ const invModal = document.querySelector(".invModal");
 
 function collectItemToInv(itemName) {
   const div = document.createElement("div");
-  const itemInInvDiv = document.querySelector("invModal");
-  const itemToPickUp = document.querySelector("#itemToPickUp");
 
-  if (inventory.includes("knife")) {
+  if (inventory.includes(itemName)) {
     console.log("already in inventory!");
-    itemInInvDiv.textContent = "ALREADY IN INVENTORY!";
-    itemInInvDiv.id = "invModal";
-    itemInInvDiv.appendChild(itemInInvDiv);
+    notification(`${itemName.toUpperCase()} ALREADY IN INVENTORY`);
   } else {
     inventory.push(itemName);
     div.textContent = itemName;
     div.id = "invItem";
-    console.log(`ITEM PICKED: ${itemName}`);
+    console.log(`ITEM PICKED UP: ${itemName}`);
+    notification(`${itemName.toUpperCase()} PICKED UP`);
     invItem.appendChild(div);
   }
 }
 // INVENTORY & COLLECT
+
+// Notification / error with popup
+const notificationDiv = document.querySelector("#notification");
+
+function notification(value) {
+  notificationDiv.innerHTML = value;
+  notificationDiv.className = "show";
+  setTimeout(function () {
+    notificationDiv.className = notificationDiv.className.replace("show", "");
+  }, 2000);
+}
 
 //SHOW INVENTORY
 const inventoryBox = document.querySelector("#inventoryDiv");
