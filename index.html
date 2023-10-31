@@ -14,17 +14,37 @@
     <script src="/script/script.js" defer></script>
   </head>
   <body>
+    <header>
+      <div class="modal">
+        <div class="modal-item">
+          <button id="closeMenu">CLOSE</button>
+        </div>
+        <div class="modal-item">
+          <button onclick="resetAll()">reset</button
+          ><img src="/img/arrow7-svgrepo-com.svg" alt="" />
+        </div>
+        <div class="modal-item">
+          <button onclick="reRoute(`whomadethis.html`)">Who made this?</button>
+          <img src="/img/arrow7-svgrepo-com.svg" alt="" />
+        </div>
+      </div>
+      <div class="logo"><a href="/index.html">THE HUB</a></div>
+      <div class="menu"><button id="burger">🍔</button></div>
+    </header>
+
     <div class="room-picker">
-      <button class="room room1 roomBtn" id="room1">Cirkus</button>
-      <button class="room room2 roomBtn" id="room2">Color-play</button>
-      <button class="room room3 roomBtn" id="room3">
-        Lorem ipsum dolor sit amet.
-      </button>
-      <button class="room room4 roomBtn" id="room4">Zen-zone</button>
+      <div class="left">
+        <button class="room room1 roomBtn" id="room1">🎪</button>
+        <button class="room room2 roomBtn" id="room2">🎨</button>
+      </div>
+      <div class="right">
+        <button class="room room3 roomBtn" id="room3">👹</button>
+        <button class="room room4 roomBtn" id="room4">🧘</button>
+      </div>
     </div>
-    <div class="btn"><button id="inventoryBtn">INVENTORY</button></div>
+    <div class="btn"><button id="inventoryBtn">INVENTORY 🎒</button></div>
     <div id="inventoryDiv" class="hideMenu"></div>
-    <div class="itemToPickUp" id="itemToPickUp">
+    <div class="itemToPickUp" id="knife">
       <img
         src="/img/knife-weapon-gun-military-sword-svgrepo-com.svg"
         alt=""
@@ -33,5 +53,9 @@
     </div>
     <div id="invModal"></div>
     <div id="notification"></div>
+    <div class="renderRoom1 hide"><p>This is room 1</p></div>
+    <div class="renderRoom2 hide"><p>This is room 2</p></div>
+    <div class="renderRoom3 hide"><p>This is room 3</p></div>
+    <div class="renderRoom4 hide"><p>This is room 4</p></div>
   </body>
 </html>
