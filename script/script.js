@@ -1,5 +1,5 @@
 const playerState = {
-  roomNr: 0,
+  roomNr: "room0",
   inventorySlots: 5,
 };
 
@@ -9,8 +9,13 @@ for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
     playerState.roomNr = e.target.id;
     console.log(playerState.roomNr);
+
     renderRoom(e.target.id);
   });
+}
+// LÄGG TILL LOGIK FÖR ATT RENDERA , KANSKE LÄGGA TILL ATT MAN BHEÖVER FYLLA I NAMN INNAN ALLT RENDERAS?
+// FRAMFÖRALLT LÄGG TILL SÅ ATT SIDA RENDERAS BEROENDE PÅ roomNr
+if (playerState.roomNr == "room1") {
 }
 
 // RENDER ROOM!!!
@@ -18,7 +23,7 @@ function renderRoom(target) {
   if (playerState.roomNr == target) {
     const targetRoom = target;
     const targetDiv = document.getElementById(targetRoom);
-    targetDiv.classList.add("hide");
+    targetDiv.classList.remove("hide");
   }
 }
 // RENDER ROOM!!!
@@ -90,6 +95,7 @@ function resetAll() {
     inventorySlots: 5,
   };
   const inventory = [];
+  localStorage.clear();
   location.reload();
 }
 

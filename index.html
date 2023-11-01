@@ -43,7 +43,11 @@
       </div>
     </div>
     <div class="btn"><button id="inventoryBtn">INVENTORY 🎒</button></div>
-    <div id="inventoryDiv" class="hideMenu"></div>
+    <div
+      id="inventoryDiv"
+      class="hideMenu"
+      onclick="notification('NOTHING TO DO HERE SORRY')"
+    ></div>
     <div class="itemToPickUp" id="knife">
       <img
         src="/img/knife-weapon-gun-military-sword-svgrepo-com.svg"
@@ -51,7 +55,7 @@
         onclick="collectItemToInv('knife')"
       />
     </div>
-    <div id="invModal"></div>
+
     <div id="notification"></div>
     <div class="renderRoom1 hide"><p>This is room 1</p></div>
     <div class="renderRoom2 hide"><p>This is room 2</p></div>
