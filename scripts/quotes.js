@@ -47,13 +47,15 @@ const quotes = [
 var index = 0;
 
 function loadQuotes() {
-  if (index < quotes.length) {
-    roomText.textContent = quotes[`${index}`].content;
-    response.textContent = quotes[`${index}`].author;
-    containerDiv.style.background = quotes[`${index}`].imgSource;
-    index++;
-  } else {
-    index = 1;
+  if (playerState.roomNr === "room4") {
+    if (index < quotes.length) {
+      roomText.textContent = quotes[`${index}`].content;
+      response.textContent = quotes[`${index}`].author;
+      containerDiv.style.background = quotes[`${index}`].imgSource;
+      index++;
+    } else {
+      index = 1;
+    }
   }
 }
 

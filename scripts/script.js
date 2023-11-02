@@ -131,8 +131,3 @@ function resetAll() {
   localStorage.clear();
   location.reload();
 }
-
-// function playError() {
-//   var audio = new Audio("audio/error.mp3");
-//   audio.play();
-// }

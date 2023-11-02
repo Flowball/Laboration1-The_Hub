@@ -194,7 +194,7 @@ button {
   align-items: center;
   flex-direction: column;
   padding: 30px;
-  background-color: gainsboro;
+  background-color: rgba(220, 220, 220, 0.856);
   height: 100%;
   gap: 10px;
   list-style: none;
