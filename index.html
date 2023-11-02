@@ -11,7 +11,13 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <script src="/script/script.js" defer></script>
+    <script src="/script/music_quiz.js" defer></script>
+    <script src="/script/scenes.js" defer></script>
   </head>
   <body>
     <header>
@@ -21,25 +27,25 @@
         </div>
         <div class="modal-item">
           <button onclick="resetAll()">reset</button
-          ><img src="/img/arrow7-svgrepo-com.svg" alt="" />
+          ><span class="material-symbols-outlined"> chevron_right </span>
         </div>
         <div class="modal-item">
           <button onclick="reRoute(`whomadethis.html`)">Who made this?</button>
-          <img src="/img/arrow7-svgrepo-com.svg" alt="" />
+          <span class="material-symbols-outlined"> chevron_right </span>
         </div>
       </div>
       <div class="logo"><a href="/index.html">THE HUB</a></div>
       <div class="menu"><button id="burger">🍔</button></div>
     </header>
 
-    <div class="room-picker">
+    <div class="room-picker" id="roomPicker">
       <div class="left">
-        <button class="room room1 roomBtn" id="room1">🎪</button>
-        <button class="room room2 roomBtn" id="room2">🎨</button>
+        <button class="room roomBtn" id="room1">🎧</button>
+        <button class="room roomBtn" id="room2">🎨</button>
       </div>
       <div class="right">
-        <button class="room room3 roomBtn" id="room3">👹</button>
-        <button class="room room4 roomBtn" id="room4">🧘</button>
+        <button class="room roomBtn" id="room3">👹</button>
+        <button class="room roomBtn" id="room4">🧘</button>
       </div>
     </div>
     <div class="btn"><button id="inventoryBtn">INVENTORY 🎒</button></div>
@@ -57,9 +63,17 @@
     </div>
 
     <div id="notification"></div>
-    <div class="renderRoom1 hide"><p>This is room 1</p></div>
-    <div class="renderRoom2 hide"><p>This is room 2</p></div>
-    <div class="renderRoom3 hide"><p>This is room 3</p></div>
-    <div class="renderRoom4 hide"><p>This is room 4</p></div>
+    <div class="renderRoom1 playroom hide" id="playRoom">
+      <div class="container">
+        <div id="roomText"></div>
+        <div id="roomSubText"></div>
+        <div class="musicHolder hide">
+          <button class="musicBtns" id="musicBtn-1">PLAY</button>
+        </div>
+        <div id="response"></div>
+        <input type="text" name="" id="guessInput" class="hide" />
+        <div id="secondResponse"></div>
+      </div>
+    </div>
   </body>
 </html>

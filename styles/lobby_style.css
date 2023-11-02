@@ -12,6 +12,11 @@ body {
   margin: 0 auto;
 }
 
+.playroom {
+  height: 100%;
+  display: flex;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -216,6 +221,40 @@ button {
   color: red;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#roomText {
+  font-size: 3rem;
+  color: white;
+}
+
+#roomSubText {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+}
+
+.musicHolder button {
+  margin: 10px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: steelblue;
+  border: 1px solid black;
+}
+
+#response {
+  color: white;
+}
 @-webkit-keyframes fadein {
   from {
     bottom: 0;
@@ -258,4 +297,8 @@ button {
     bottom: 0;
     opacity: 0;
   }
+}
+
+.material-symbols-outlined {
+  color: black;
 }
