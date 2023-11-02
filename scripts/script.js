@@ -4,6 +4,9 @@ const playerState = {
 };
 
 const roomBtns = document.getElementsByClassName("roomBtn");
+const response = document.querySelector("#response");
+const secondResponse = document.querySelector("#secondResponse");
+const containerDiv = document.querySelector("#container");
 
 for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
@@ -124,64 +127,11 @@ function resetAll() {
     inventorySlots: 5,
   };
   const inventory = [];
+  songIndex = 0;
   localStorage.clear();
   location.reload();
 }
 
-//reroute to new site function
-
-function reRoute(siteValue) {
-  window.location.href = siteValue;
-}
-
-//MUSIC QUIZ
-const playBtn = document.querySelector("#musicBtn-1");
-const response = document.querySelector("#response");
-const secondResponse = document.querySelector("#secondResponse");
-const guessInput = document.querySelector("#guessInput");
-let songIndex = 0;
-
-playBtn.addEventListener("click", startMusicQuiz);
-console.log("songidex =" + songIndex);
-function startMusicQuiz() {
-  let songSource = someMusic[`${songIndex}`].source;
-  console.log("songidex =" + songIndex);
-  secondResponse.textContent = "";
-  console.log(songSource);
-  playBtn.textContent = "PLAY";
-  playMusic(songSource);
-  let songTitle = someMusic[`${songIndex}`].songTitle;
-  guessInput.classList.remove("hide");
-  response.textContent = someMusic[`${songIndex}`].question;
-  guessInput.addEventListener("change", () => {
-    if (guessInput.value.toUpperCase() === someMusic[`${songIndex}`].correct) {
-      console.log("songidex =" + songIndex);
-      console.log("YEA!!!");
-      secondResponse.textContent = `korrekt svar!`;
-      playBtn.textContent = "Klicka för att spela nästa";
-      playBtn.addEventListener("click", () => {
-        songIndex++;
-        startMusicQuiz();
-      });
-    } else {
-      console.log("songidex =" + songIndex);
-      console.log("fel svar!!!!!");
-      secondResponse.textContent = `fel svar... prova igen!`;
-    }
-  });
-}
-
-function guess() {
-  if (guessInput.value === "hej") {
-    console.log("YEHOW");
-  } else {
-    console.log("super fail...");
-  }
-}
-function playMusic(songSource) {
-  var audio = new Audio(songSource);
-  audio.play();
-}
 // function playError() {
 //   var audio = new Audio("audio/error.mp3");
 //   audio.play();

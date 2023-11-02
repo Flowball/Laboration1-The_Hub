@@ -15,9 +15,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <script src="/script/script.js" defer></script>
-    <script src="/script/music_quiz.js" defer></script>
-    <script src="/script/scenes.js" defer></script>
+    <script src="/scripts/script.js" defer></script>
+    <script src="/scripts/music_quiz.js" defer></script>
+    <script src="/scripts/scenes.js" defer></script>
+    <script src="/scripts/quotes.js"></script>
   </head>
   <body>
     <header>
@@ -45,7 +46,7 @@
       </div>
       <div class="right">
         <button class="room roomBtn" id="room3">👹</button>
-        <button class="room roomBtn" id="room4">🧘</button>
+        <button class="room roomBtn" id="room4">💬</button>
       </div>
     </div>
     <div class="btn"><button id="inventoryBtn">INVENTORY 🎒</button></div>
@@ -64,7 +65,7 @@
 
     <div id="notification"></div>
     <div class="renderRoom1 playroom hide" id="playRoom">
-      <div class="container">
+      <div class="container" id="container">
         <div id="roomText"></div>
         <div id="roomSubText"></div>
         <div class="musicHolder hide">

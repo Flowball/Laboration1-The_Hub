@@ -1,7 +1,7 @@
 const scenes = [
   {
     id: 0,
-    text: "Välkommen till musikquis!!",
+    text: "Välkommen till musikquiz!!",
     itemToPickup: "knife",
     subText:
       "🎵Slå på ljud🎵 starta genom att klicka på PLAY, skriv sedan din gissning! ( slå enter )",
@@ -18,7 +18,7 @@ const scenes = [
   },
   {
     id: 3,
-    text: "Välkommen till YOOOOGA",
+    text: "Välkommen till Quotemachine",
     itemToPickup: "clock",
   },
 ];
