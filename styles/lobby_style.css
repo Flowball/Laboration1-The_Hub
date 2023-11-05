@@ -163,10 +163,11 @@ button {
   cursor: pointer;
 }
 
-.itemToPickUp img {
-  max-width: 50px;
+.itemToPickUp {
+  font-size: 4rem;
   position: absolute;
-  bottom: 0;
+  bottom: 3%;
+  left: 50%;
 }
 
 #notification {
@@ -229,11 +230,14 @@ button {
   align-items: center;
   justify-content: center;
   height: 100%;
-  transition: all 200ms;
+  transition: all 700ms;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #roomText {
-  font-size: 3rem;
+  /* font-size: 3rem; */
+  font-size: clamp(16px, 4vw, 22px);
   color: white;
 }
 
@@ -255,6 +259,17 @@ button {
 
 #response {
   color: white;
+}
+
+.diceDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  color: white;
+}
+.numberDiv {
+  border: 1px solid white;
+  padding: 15px 15px;
 }
 @-webkit-keyframes fadein {
   from {

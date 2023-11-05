@@ -3,6 +3,8 @@ const playerState = {
   inventorySlots: 5,
 };
 
+checkInventory();
+
 const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
 const secondResponse = document.querySelector("#secondResponse");
@@ -19,14 +21,13 @@ for (btn of roomBtns) {
 // RENDER ROOM!!!
 function renderRoom(target) {
   if (playerState.roomNr == target) {
-    const targetRoom = target;
     const pickedRoom = document.querySelector(`#${target}`);
-
     const playRoom = document.querySelector("#playRoom");
     const roomText = document.querySelector("#roomText");
     const roomSubtext = document.querySelector("#roomSubText");
     const itemToPickup = document.querySelector(".itemToPickup");
     const musicHolder = document.querySelector(".musicHolder");
+    const diceDiv = document.querySelector("#diceDiv");
 
     switch (pickedRoom) {
       case room1:
@@ -42,6 +43,9 @@ function renderRoom(target) {
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
         console.log("DU VALDE RUM2!");
+        diceDiv.classList.toggle("hide");
+        diceDiv.classList.toggle("diceDiv");
+        loadDiceGame();
         break;
       case room3:
         roomPicker.classList.add("hide");
@@ -75,6 +79,7 @@ function collectItemToInv(itemName) {
     inventory.push(itemName);
     const itemId = itemName;
     const itemDiv = document.getElementById(itemId);
+    localStorage.setItem(itemName, "true");
     itemDiv.classList.add("hide");
     div.textContent = itemName;
     div.id = "invItem";
@@ -83,6 +88,13 @@ function collectItemToInv(itemName) {
     invItem.appendChild(div);
   }
 }
+
+// RENDER INVENTORY ON RELOAD
+// SKRIV EN LOOP SOM TRYCKER IN VARJE ITEM SOM FINNS I LOCAL STORAGE!!!!!
+for (stuff of inventory) {
+  const invModal = document.querySelector(".invModal");
+}
+function checkInventory() {}
 // INVENTORY & COLLECT
 
 // Notification / error with popup
@@ -131,3 +143,11 @@ function resetAll() {
   localStorage.clear();
   location.reload();
 }
+
+// let loggedIn = true;
+
+// localStorage.setItem("loggeIn", loggedIn);
+
+// if (localStorage.getItem("loggeIn") === "true") {
+//   alert("hjesan");
+// }

@@ -18,7 +18,8 @@
     <script src="/scripts/script.js" defer></script>
     <script src="/scripts/music_quiz.js" defer></script>
     <script src="/scripts/scenes.js" defer></script>
-    <script src="/scripts/quotes.js"></script>
+    <script src="/scripts/quotes.js" defer></script>
+    <script src="/scripts/dice.js" defer></script>
   </head>
   <body>
     <header>
@@ -31,7 +32,7 @@
           ><span class="material-symbols-outlined"> chevron_right </span>
         </div>
         <div class="modal-item">
-          <button onclick="reRoute(`whomadethis.html`)">Who made this?</button>
+          <button onclick="">Who made this?</button>
           <span class="material-symbols-outlined"> chevron_right </span>
         </div>
       </div>
@@ -42,10 +43,10 @@
     <div class="room-picker" id="roomPicker">
       <div class="left">
         <button class="room roomBtn" id="room1">🎧</button>
-        <button class="room roomBtn" id="room2">🎨</button>
+        <button class="room roomBtn" id="room2">🎲</button>
       </div>
       <div class="right">
-        <button class="room roomBtn" id="room3">👹</button>
+        <button class="room roomBtn" id="room3">🔥</button>
         <button class="room roomBtn" id="room4">💬</button>
       </div>
     </div>
@@ -56,11 +57,7 @@
       onclick="notification('NOTHING TO DO HERE SORRY')"
     ></div>
     <div class="itemToPickUp" id="knife">
-      <img
-        src="/img/knife-weapon-gun-military-sword-svgrepo-com.svg"
-        alt=""
-        onclick="collectItemToInv('knife')"
-      />
+      <span onclick="collectItemToInv('knife')">🔪</span>
     </div>
 
     <div id="notification"></div>
@@ -68,6 +65,10 @@
       <div class="container" id="container">
         <div id="roomText"></div>
         <div id="roomSubText"></div>
+        <div class="hide" id="diceDiv">
+          <div class="numberDiv1 numberDiv"></div>
+          <div class="numberDiv2 numberDiv"></div>
+        </div>
         <div class="musicHolder hide">
           <button class="musicBtns" id="musicBtn-1">PLAY</button>
         </div>

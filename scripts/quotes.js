@@ -15,8 +15,7 @@ const quotes = [
   },
   {
     quote: 0,
-    content:
-      "I have a dream that my four little children will one day live in a nation where they will not be judged by the color of their skin but by the content of their character. ",
+    content: "Out of the mountain of despair, a stone of hope.",
     author: "Martin Luther King",
     imgSource:
       "url(https://media.npr.org/assets/img/2017/01/15/king-speech_custom-55a36ccca2c18277f6560b860375bd766a40c22d-s1100-c50.jpg)",
@@ -33,7 +32,7 @@ const quotes = [
     content: "May the Force be with you.	",
     author: "Star Wars",
     imgSource:
-      "url(https://static.wikia.nocookie.net/starwars/images/c/c8/SW_franchise_mural_OT.jpg/revision/latest?cb=20211101032806)",
+      "url(https://filmtopp.imgix.net/media/2020/10/StarWars.jpg?w=900&h=700&crop=top&auto=format&s=a4be6a4f367108e304fd30c5d1104ca9)",
   },
   {
     quote: 0,
@@ -52,6 +51,8 @@ function loadQuotes() {
       roomText.textContent = quotes[`${index}`].content;
       response.textContent = quotes[`${index}`].author;
       containerDiv.style.background = quotes[`${index}`].imgSource;
+      containerDiv.style.backgroundSize = "100%";
+      roomText.style.background = "black";
       index++;
     } else {
       index = 1;
@@ -59,4 +60,4 @@ function loadQuotes() {
   }
 }
 
-setInterval(loadQuotes, 3000);
+setInterval(loadQuotes, 5000);

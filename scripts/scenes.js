@@ -8,7 +8,7 @@ const scenes = [
   },
   {
     id: 1,
-    text: "Välkommen till MÅLNINGEN",
+    text: "Välkommen till Tärning",
     itemToPickup: "ball",
   },
   {
