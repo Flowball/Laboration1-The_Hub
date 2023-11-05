@@ -53,6 +53,11 @@ function loadQuotes() {
       containerDiv.style.background = quotes[`${index}`].imgSource;
       containerDiv.style.backgroundSize = "100%";
       roomText.style.background = "black";
+      roomText.style.padding = "15px";
+      roomText.style.textAlign = "center";
+      response.style.background = "white";
+      response.style.color = "black";
+      response.style.padding = "15px";
       index++;
     } else {
       index = 1;
