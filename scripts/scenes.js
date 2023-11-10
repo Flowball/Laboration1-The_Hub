@@ -13,12 +13,12 @@ const scenes = [
   },
   {
     id: 2,
-    text: "Välkommen till DJÄVULEN",
+    text: "Välkommen till fiskar",
     itemToPickup: "hat",
   },
   {
     id: 3,
-    text: "Välkommen till Citatmaskinen",
+    text: "Citatmaskin",
     itemToPickup: "clock",
   },
 ];

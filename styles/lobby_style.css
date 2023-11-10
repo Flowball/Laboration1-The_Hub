@@ -269,10 +269,18 @@ button {
   flex-direction: row;
   gap: 10px;
   color: white;
+  margin: 10px;
 }
 .numberDiv {
   border: 1px solid white;
   padding: 15px 15px;
+}
+
+#roomSubText button {
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: steelblue;
 }
 @-webkit-keyframes fadein {
   from {

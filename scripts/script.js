@@ -43,15 +43,13 @@ function renderRoom(target) {
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
         console.log("DU VALDE RUM2!");
-        diceDiv.classList.toggle("hide");
-        diceDiv.classList.toggle("diceDiv");
         loadDiceGame();
         break;
       case room3:
         roomPicker.classList.add("hide");
-        playRoom.classList.remove("hide");
-        roomText.innerHTML = scenes[2].text;
+
         console.log("DU VALDE RUM3!");
+        loadSpecies();
         break;
       case room4:
         roomPicker.classList.add("hide");
