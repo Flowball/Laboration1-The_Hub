@@ -275,8 +275,12 @@ button {
   background-color: steelblue;
 }
 
-#test {
+.itemToPickUp {
   cursor: pointer;
+  font-size: 10rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 @-webkit-keyframes fadein {
   from {

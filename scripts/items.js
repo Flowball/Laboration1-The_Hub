@@ -3,7 +3,7 @@ const items = [
     id: 0,
     name: "knife",
     icon: "🔪",
-    pickedUpStatus: true,
+    pickedUpStatus: false,
   },
   {
     id: 1,
