@@ -52,7 +52,7 @@ function loadQuotes() {
       response.textContent = quotes[`${index}`].author;
       containerDiv.style.background = quotes[`${index}`].imgSource;
       containerDiv.style.backgroundSize = "100%";
-      roomText.style.background = "black";
+      roomText.style.backgroundColor = "rgb(125, 62, 62)";
       roomText.style.padding = "15px";
       roomText.style.textAlign = "center";
       response.style.background = "white";

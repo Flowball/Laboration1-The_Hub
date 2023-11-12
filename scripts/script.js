@@ -4,6 +4,7 @@ const playerState = {
 };
 
 checkInventory();
+checkTheme();
 
 const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
@@ -84,6 +85,7 @@ function collectItemToInv(itemName) {
     console.log(`ITEM PICKED UP: ${itemName}`);
     notification(`${itemName.toUpperCase()} PICKED UP`);
     invItem.appendChild(div);
+    console.log(inventory);
   }
 }
 
@@ -140,12 +142,63 @@ function resetAll() {
   songIndex = 0;
   localStorage.clear();
   location.reload();
+  enableDarkMode();
 }
 
-// let loggedIn = true;
+const toggleTheme = document.querySelector("#themeToggle");
 
-// localStorage.setItem("loggeIn", loggedIn);
+toggleTheme.addEventListener("click", changeTheme);
+function changeTheme() {
+  darkmode = localStorage.getItem("dark-mode");
+  if (darkmode === "disabled") {
+    enableDarkMode();
+  }
+  if (darkmode === "enabled") {
+    disableDarkMode();
+  }
+}
 
-// if (localStorage.getItem("loggeIn") === "true") {
-//   alert("hjesan");
-// }
+function checkTheme() {
+  darkmode = localStorage.getItem("dark-mode");
+  if (darkmode === "disabled") {
+    disableDarkMode();
+  }
+  if (darkmode === "enabled") {
+    enableDarkMode();
+  }
+}
+function enableDarkMode() {
+  localStorage.setItem("dark-mode", "enabled");
+  document.body.style.backgroundColor = "#252629";
+  const header = document.querySelector("header");
+  const roomText = document.querySelector("#roomText");
+  const roomSubtext = document.querySelector("#roomSubText");
+  const response = document.querySelector("#response");
+  response.classList.remove("roomTextDark");
+  response.classList.add("roomTextLight");
+  roomText.classList.remove("roomTextDark");
+  roomText.classList.add("roomTextLight");
+  roomSubtext.classList.remove("roomTextDark");
+  roomSubtext.classList.add("roomTextLight");
+  header.style.color = "white";
+  header.style.borderBottom = "1px solid white";
+  console.log("Dark mode enabled!");
+}
+
+function disableDarkMode() {
+  localStorage.setItem("dark-mode", "disabled");
+  document.body.style.backgroundColor = "white";
+  const header = document.querySelector("header");
+  const roomText = document.querySelector("#roomText");
+  const roomSubtext = document.querySelector("#roomSubText");
+  const response = document.querySelector("#response");
+  response.classList.add("roomTextDark");
+  response.classList.remove("roomTextLight");
+  roomSubtext.classList.add("roomTextDark");
+  roomSubtext.classList.remove("roomTextLight");
+  roomText.classList.add("roomTextDark");
+  roomText.classList.remove("roomTextLight");
+  header.style.borderBottom = "1px solid #252629";
+  header.style.color = "#252629";
+  console.log("Dark mode disabled!!");
+}

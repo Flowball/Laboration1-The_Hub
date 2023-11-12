@@ -45,6 +45,7 @@ main {
   max-height: 40rem;
   min-height: 25rem;
   overflow-y: hidden;
+  border: 1px solid black;
 }
 .cardTitle {
   font-weight: 500;

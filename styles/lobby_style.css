@@ -2,16 +2,22 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "IBM Plex Mono", monospace;
-  /* color: white; */
 }
 body {
-  background-color: #252629;
   width: 100svw;
   height: 90svh;
   max-width: 90%;
   margin: 0 auto;
 }
-
+.logo {
+  cursor: pointer;
+}
+.bodyLight {
+  background-color: white;
+}
+.bodyDark {
+  background-color: #252629;
+}
 .playroom {
   height: 100%;
   display: flex;
@@ -20,15 +26,9 @@ body {
 header {
   display: flex;
   flex-direction: row;
-  color: white;
   justify-content: space-between;
   margin: 15px;
-  border-bottom: 1px solid white;
-}
-.logo {
-}
-.logo a {
-  color: white;
+  color: black;
 }
 
 #burger {
@@ -66,7 +66,7 @@ header {
   border: 2px solid steelblue;
   border-radius: 5px;
   color: white;
-  font-size: 4rem;
+  font-size: 8rem;
 }
 
 .room p:hover {
@@ -158,6 +158,7 @@ a {
 }
 
 button {
+  font-size: 1rem;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -236,16 +237,18 @@ button {
 }
 
 #roomText {
-  /* font-size: 3rem; */
   font-size: clamp(1rem, 2.5vw, 2rem);
-  color: white;
   max-width: 70%;
+}
+.roomTextLight {
+  color: white;
+}
+.roomTextDark {
+  color: black;
 }
 
 #roomSubText {
-  /* font-size: 1.2rem; */
   font-size: clamp(0.5rem, 2.5vw, 1rem);
-  color: white;
   text-align: center;
   max-width: 80%;
 }
@@ -258,10 +261,6 @@ button {
   cursor: pointer;
   background-color: steelblue;
   border: 1px solid black;
-}
-
-#response {
-  color: white;
 }
 
 .diceDiv {
