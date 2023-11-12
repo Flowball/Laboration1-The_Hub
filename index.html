@@ -23,6 +23,7 @@
     <script src="/scripts/dice.js" defer></script>
     <script src="/scripts/fish_main.js"></script>
     <script src="/scripts/species_data.js"></script>
+    <script src="/scripts/items.js"></script>
   </head>
   <body>
     <header>
@@ -47,6 +48,7 @@
       <div class="menu"><button id="burger">🍔</button></div>
     </header>
 
+    <div id="test"></div>
     <div class="room-picker" id="roomPicker">
       <div class="left">
         <button class="room roomBtn" id="room1">🎧</button>
@@ -63,9 +65,6 @@
       class="hideMenu"
       onclick="notification('NOTHING TO DO HERE SORRY')"
     ></div>
-    <div class="itemToPickUp" id="knife">
-      <span onclick="collectItemToInv('knife')">🔪</span>
-    </div>
 
     <div id="notification"></div>
     <div class="renderRoom1 playroom hide" id="playRoom">

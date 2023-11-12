@@ -164,13 +164,6 @@ button {
   cursor: pointer;
 }
 
-.itemToPickUp {
-  font-size: 4rem;
-  position: absolute;
-  bottom: 3%;
-  left: 50%;
-}
-
 #notification {
   visibility: hidden;
   position: fixed;
@@ -280,6 +273,10 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   background-color: steelblue;
+}
+
+#test {
+  cursor: pointer;
 }
 @-webkit-keyframes fadein {
   from {

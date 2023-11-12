@@ -2,9 +2,38 @@ const playerState = {
   roomNr: "room0",
   inventorySlots: 5,
 };
-
+console.table(items);
 checkInventory();
 checkTheme();
+parseLS();
+function parseLS() {
+  let persistentItemArray = localStorage.setItem(
+    "itemsArray",
+    JSON.stringify(items)
+  );
+  let itemsArray = localStorage.getItem("itemsArray");
+  JSON.parse(itemsArray);
+  return itemsArray;
+}
+let itemsArray = JSON.parse(parseLS());
+
+console.table(itemsArray);
+function renderItems(pickUpItem) {
+  for (item of itemsArray) {
+    if (item.name === pickUpItem && item.pickedUpStatus == false) {
+      //ändra itemholder, rendera DIV med funktion
+      const itemHolder = document.querySelector("#test");
+      itemHolder.textContent = item.icon;
+      itemHolder.addEventListener("click", pickUpFunction(item));
+      itemHolder.addEventListener("click", () => {
+        item.pickedUpStatus = true;
+        console.log(item.pickedUpStatus);
+        itemHolder.classList.add("hide");
+        console.table(items);
+      });
+    }
+  }
+}
 
 const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
@@ -32,6 +61,7 @@ function renderRoom(target) {
 
     switch (pickedRoom) {
       case room1:
+        renderItems("knife");
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         console.log("DU VALDE RUM1!");
@@ -40,6 +70,7 @@ function renderRoom(target) {
         roomSubtext.innerHTML = scenes[0].subText;
         break;
       case room2:
+        renderItems("frog");
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
@@ -47,12 +78,14 @@ function renderRoom(target) {
         loadDiceGame();
         break;
       case room3:
+        renderItems("cash");
         roomPicker.classList.add("hide");
 
         console.log("DU VALDE RUM3!");
         loadSpecies();
         break;
       case room4:
+        renderItems("dynamite");
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[3].text;
@@ -68,33 +101,14 @@ const inventory = [];
 const invItem = document.querySelector("#inventoryDiv");
 const invModal = document.querySelector(".invModal");
 
-function collectItemToInv(itemName) {
-  const div = document.createElement("div");
-
-  if (inventory.includes(itemName)) {
-    console.log("already in inventory!");
-    notification(`${itemName.toUpperCase()} ALREADY IN INVENTORY`);
-  } else {
-    inventory.push(itemName);
-    const itemId = itemName;
-    const itemDiv = document.getElementById(itemId);
-    localStorage.setItem(itemName, "true");
-    itemDiv.classList.add("hide");
-    div.textContent = itemName;
-    div.id = "invItem";
-    console.log(`ITEM PICKED UP: ${itemName}`);
-    notification(`${itemName.toUpperCase()} PICKED UP`);
-    invItem.appendChild(div);
-    console.log(inventory);
-  }
-}
-
 // RENDER INVENTORY ON RELOAD
 // SKRIV EN LOOP SOM TRYCKER IN VARJE ITEM SOM FINNS I LOCAL STORAGE!!!!!
 for (stuff of inventory) {
   const invModal = document.querySelector(".invModal");
 }
-function checkInventory() {}
+function checkInventory() {
+  console.log(localStorage.knife);
+}
 // INVENTORY & COLLECT
 
 // Notification / error with popup
