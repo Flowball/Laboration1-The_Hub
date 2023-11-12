@@ -2,14 +2,15 @@ const playerState = {
   roomNr: "room0",
   inventorySlots: 5,
 };
+
+/**
+ * Initiate application (like a main script)
+ */
 checkInventory();
 checkTheme();
 parseLS();
 function parseLS() {
-  let persistentItemArray = localStorage.setItem(
-    "itemsArray",
-    JSON.stringify(items)
-  );
+  localStorage.setItem("itemsArray", JSON.stringify(items));
   let itemsArray = localStorage.getItem("itemsArray");
   JSON.parse(itemsArray);
   return itemsArray;
@@ -178,6 +179,9 @@ function checkTheme() {
     disableDarkMode();
   }
   if (darkmode === "enabled") {
+    enableDarkMode();
+  }
+  if (darkmode === null) {
     enableDarkMode();
   }
 }
