@@ -1,3 +1,4 @@
+/** Item used for quotes,  */
 const quotes = [
   {
     quote: 0,

@@ -1,14 +1,22 @@
-const playerState = {
-  roomNr: "room0",
-  inventorySlots: 5,
-};
-
 /**
  * Initiate application (like a main script)
  */
 checkInventory();
 checkTheme();
 parseLS();
+
+/** Set variables */
+const roomBtns = document.getElementsByClassName("roomBtn");
+const response = document.querySelector("#response");
+const secondResponse = document.querySelector("#secondResponse");
+const containerDiv = document.querySelector("#container");
+
+const playerState = {
+  roomNr: "room0",
+  inventorySlots: 5,
+};
+
+/** Set itemsArray to localstorage, this to keep track of pickedup true/false */
 function parseLS() {
   localStorage.setItem("itemsArray", JSON.stringify(items));
   let itemsArray = localStorage.getItem("itemsArray");
@@ -17,6 +25,7 @@ function parseLS() {
 }
 let itemsArray = JSON.parse(parseLS());
 
+/** Render items in array dynamically based on data from itemsarray (-->items.js)*/
 function renderItems(pickUpItem) {
   for (item of itemsArray) {
     if (item.name === pickUpItem && item.pickedUpStatus == false) {
@@ -34,13 +43,15 @@ function renderItems(pickUpItem) {
 const itemHolder = document.querySelector("#test");
 itemHolder.addEventListener("click", (e) => {
   let selectedItem = e.target.id;
+  for (stuff of items) {
+    let hej = stuff;
+    if (stuff.name == selectedItem) {
+      console.log(stuff);
+      stuff.pickedUpStatus = true;
+    }
+  }
   renderItems();
 });
-
-const roomBtns = document.getElementsByClassName("roomBtn");
-const response = document.querySelector("#response");
-const secondResponse = document.querySelector("#secondResponse");
-const containerDiv = document.querySelector("#container");
 
 for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
@@ -50,7 +61,7 @@ for (btn of roomBtns) {
   });
 }
 
-// RENDER ROOM!!!
+/** Render rooms depending on click */
 function renderRoom(target) {
   if (playerState.roomNr == target) {
     const pickedRoom = document.querySelector(`#${target}`);
@@ -65,7 +76,6 @@ function renderRoom(target) {
       case room1:
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
-        console.log("DU VALDE RUM1!");
         musicHolder.classList.toggle("hide");
         roomText.innerHTML = scenes[0].text;
         roomSubtext.innerHTML = scenes[0].subText;
@@ -75,13 +85,11 @@ function renderRoom(target) {
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
-        console.log("DU VALDE RUM2!");
         renderItems("frog");
         loadDiceGame();
         break;
       case room3:
         roomPicker.classList.add("hide");
-        console.log("DU VALDE RUM3!");
         loadSpecies();
         renderItems("cash");
         break;
@@ -89,20 +97,17 @@ function renderRoom(target) {
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[3].text;
-        console.log("DU VALDE RUM4!");
         renderItems("dynamite");
         break;
     }
   }
 }
-// RENDER ROOM!!!
 
-// INVENTORY & COLLECT
+/** Setting variables for inventory modal */
 const inventory = [];
 const invItem = document.querySelector("#inventoryDiv");
 const invModal = document.querySelector(".invModal");
 
-// RENDER INVENTORY ON RELOAD
 // SKRIV EN LOOP SOM TRYCKER IN VARJE ITEM SOM FINNS I LOCAL STORAGE!!!!!
 for (stuff of inventory) {
   const invModal = document.querySelector(".invModal");
@@ -110,9 +115,10 @@ for (stuff of inventory) {
 function checkInventory() {
   console.log(localStorage.knife);
 }
-// INVENTORY & COLLECT
 
-// Notification / error with popup
+/** Dynamic notification toaster, use a string for argument
+ * @param string
+ */
 const notificationDiv = document.querySelector("#notification");
 
 function notification(value) {
@@ -123,7 +129,7 @@ function notification(value) {
   }, 2000);
 }
 
-//SHOW INVENTORY
+/** Show inventory bottom right corner */
 const inventoryBox = document.querySelector("#inventoryDiv");
 const inventoryBtn = document.querySelector("#inventoryBtn");
 inventoryBtn.addEventListener("click", () => {
@@ -131,9 +137,8 @@ inventoryBtn.addEventListener("click", () => {
   inventoryBox.classList.toggle("showMenu");
   inventoryBox.classList.toggle("hideMenu");
 });
-//SHOW INVENTORY
 
-//burger menu toggle
+/** Toggle burger-menu */
 const burger = document.querySelector("#burger");
 const modal = document.querySelector(".modal");
 const closeModal = document.querySelector("#closeMenu");
@@ -146,8 +151,7 @@ closeModal.addEventListener("click", () => {
   modal.classList.toggle("showModal");
 });
 
-//RESET FUNCTION
-
+/** Resets all data, refreshes, clears local-storage, resets variables */
 function resetAll() {
   const playerState = {
     roomNr: 0,
@@ -159,9 +163,8 @@ function resetAll() {
   location.reload();
   enableDarkMode();
 }
-
+/** Dark/light - Mode function */
 const toggleTheme = document.querySelector("#themeToggle");
-
 toggleTheme.addEventListener("click", changeTheme);
 function changeTheme() {
   darkmode = localStorage.getItem("dark-mode");
@@ -177,11 +180,9 @@ function checkTheme() {
   darkmode = localStorage.getItem("dark-mode");
   if (darkmode === "disabled") {
     disableDarkMode();
-  }
-  if (darkmode === "enabled") {
+  } else if (darkmode === "enabled") {
     enableDarkMode();
-  }
-  if (darkmode === null) {
+  } else if (darkmode === null) {
     enableDarkMode();
   }
 }

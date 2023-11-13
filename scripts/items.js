@@ -1,3 +1,4 @@
+/** Data-sheet for items to pickup, each item includes state if picked up or not --> pickedUpStatus: */
 const items = [
   {
     id: 0,

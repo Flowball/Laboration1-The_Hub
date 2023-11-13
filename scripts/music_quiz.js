@@ -1,3 +1,4 @@
+/** Object for items used for music quiz */
 const someMusic = [
   {
     question: "Vem är artisten ?????",
@@ -15,7 +16,7 @@ const someMusic = [
   },
 ];
 
-//MUSIC QUIZ
+/** Music quiz function, takes data from music - object, data displayed and returned based on below logic  */
 const playBtn = document.querySelector("#musicBtn-1");
 const guessInput = document.querySelector("#guessInput");
 let songIndex = 0;
