@@ -1,21 +1,18 @@
-/**
- * Initiate application (like a main script)
- */
-checkInventory();
+/*** Initiate application (like a main script) */
 checkTheme();
 loadItemsFromLS();
-// parseLS();
+renderInventory();
 
 /** Set variables */
-
 const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
 const secondResponse = document.querySelector("#secondResponse");
 const containerDiv = document.querySelector("#container");
 
+const invModal = document.querySelector(".invModal");
+
 const playerState = {
   roomNr: "room0",
-  inventorySlots: 5,
 };
 
 /** Set itemsArray to localstorage, this to keep track of pickedup true/false */
@@ -29,14 +26,20 @@ function loadItemsFromLS() {
   }
 }
 
-/** Render items in array dynamically based on data from itemsarray (-->items.js)*/
+/** Render items from array to DOM dynamically based on data from itemsarray (-->items.js).
+ * Items are also randomly placed between 0-80% top / left*/
 function renderItems(pickUpItem) {
+  const randomX = Math.floor(Math.random() * 80);
+  const randomY = Math.floor(Math.random() * 80);
+
   for (item of items) {
-    if (item.name === pickUpItem && item.pickedUpStatus == false) {
+    if (item.name === pickUpItem && item.pickedUpStatus === false) {
       //ändra itemholder, rendera DIV med funktion
       const itemHolder = document.querySelector("#test");
       itemHolder.textContent = item.icon;
       itemHolder.id = item.name;
+      itemHolder.style.left = randomX + "%";
+      itemHolder.style.top = randomY + "%";
       itemHolder.classList = "itemToPickUp";
     }
   }
@@ -48,14 +51,24 @@ itemHolder.addEventListener("click", (e) => {
   let selectedItem = e.target.id;
   for (stuff of items) {
     if (stuff.name == selectedItem) {
-      console.log(stuff);
       stuff.pickedUpStatus = true;
       itemHolder.classList.add("hide");
       saveItemsToLS();
     }
   }
   renderItems();
+  itemsCollected();
 });
+/** To check if all the items are collected, renders "reward" when everything had pickUpStatus "TRUE" */
+function itemsCollected() {
+  const allTrue = items.every((item) => item.pickedUpStatus);
+  if (allTrue) {
+    console.log("allt samlat!");
+    notification("GRATTIS ALLT ÄR SAMLAT!!");
+  } else {
+    notification("allt är inte riktigt samlat än....");
+  }
+}
 
 for (btn of roomBtns) {
   btn.addEventListener("click", (e) => {
@@ -107,25 +120,26 @@ function renderRoom(target) {
   }
 }
 
-/** Setting variables for inventory modal */
-const inventory = [];
-const invItem = document.querySelector("#inventoryDiv");
-const invModal = document.querySelector(".invModal");
-function renderInventory() {}
-// SKRIV EN LOOP SOM TRYCKER IN VARJE ITEM SOM FINNS I LOCAL STORAGE!!!!!
-for (stuff of inventory) {
-  const invModal = document.querySelector(".invModal");
-}
-function checkInventory() {
-  console.log(localStorage.knife);
+/** Render current inventory function */
+// Currently not working, bugs with not a
+function renderInventory() {
+  const invDiv = document.createElement("div");
+  const invItem = document.querySelector("#inventoryDiv");
+  const invItems = document.querySelector("#invItem");
+  for (item of items) {
+    if (item.pickedUpStatus === true) {
+      invDiv.id = "invItem";
+      invDiv.textContent = item.name;
+      invItem.appendChild(invDiv.cloneNode(true));
+    }
+  }
 }
 
 /** Dynamic notification toaster, use a string for argument
- * @param string
+ * @param string containing desired message
  */
-const notificationDiv = document.querySelector("#notification");
-
 function notification(value) {
+  const notificationDiv = document.querySelector("#notification");
   notificationDiv.innerHTML = value;
   notificationDiv.className = "show";
   setTimeout(function () {
@@ -159,7 +173,6 @@ closeModal.addEventListener("click", () => {
 function resetAll() {
   const playerState = {
     roomNr: 0,
-    inventorySlots: 5,
   };
   const inventory = [];
   songIndex = 0;
