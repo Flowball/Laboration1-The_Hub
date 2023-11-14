@@ -3,9 +3,11 @@
  */
 checkInventory();
 checkTheme();
-parseLS();
+loadItemsFromLS();
+// parseLS();
 
 /** Set variables */
+
 const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
 const secondResponse = document.querySelector("#secondResponse");
@@ -17,37 +19,39 @@ const playerState = {
 };
 
 /** Set itemsArray to localstorage, this to keep track of pickedup true/false */
-function parseLS() {
+function saveItemsToLS() {
   localStorage.setItem("itemsArray", JSON.stringify(items));
-  let itemsArray = localStorage.getItem("itemsArray");
-  JSON.parse(itemsArray);
-  return itemsArray;
 }
-let itemsArray = JSON.parse(parseLS());
+function loadItemsFromLS() {
+  const itemsString = localStorage.getItem("itemsArray");
+  if (itemsString) {
+    items = JSON.parse(itemsString);
+  }
+}
 
 /** Render items in array dynamically based on data from itemsarray (-->items.js)*/
 function renderItems(pickUpItem) {
-  for (item of itemsArray) {
+  for (item of items) {
     if (item.name === pickUpItem && item.pickedUpStatus == false) {
       //ändra itemholder, rendera DIV med funktion
       const itemHolder = document.querySelector("#test");
       itemHolder.textContent = item.icon;
       itemHolder.id = item.name;
       itemHolder.classList = "itemToPickUp";
-      // itemHolder.addEventListener("click", pickUpFunction(item));
     }
   }
 }
 
-// LÄGG TILL LOGIK FÖR ATT INJICERA TRUE VÄRDE PER ITEM VID KLICK.
+// LÄGG TILL LOGIK FÖR ATT INJECTA TRUE VÄRDE PER ITEM VID KLICK.
 const itemHolder = document.querySelector("#test");
 itemHolder.addEventListener("click", (e) => {
   let selectedItem = e.target.id;
   for (stuff of items) {
-    let hej = stuff;
     if (stuff.name == selectedItem) {
       console.log(stuff);
       stuff.pickedUpStatus = true;
+      itemHolder.classList.add("hide");
+      saveItemsToLS();
     }
   }
   renderItems();
@@ -107,7 +111,7 @@ function renderRoom(target) {
 const inventory = [];
 const invItem = document.querySelector("#inventoryDiv");
 const invModal = document.querySelector(".invModal");
-
+function renderInventory() {}
 // SKRIV EN LOOP SOM TRYCKER IN VARJE ITEM SOM FINNS I LOCAL STORAGE!!!!!
 for (stuff of inventory) {
   const invModal = document.querySelector(".invModal");
