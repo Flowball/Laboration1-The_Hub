@@ -85,9 +85,7 @@ function renderRoom(target) {
     const playRoom = document.querySelector("#playRoom");
     const roomText = document.querySelector("#roomText");
     const roomSubtext = document.querySelector("#roomSubText");
-    const itemToPickup = document.querySelector(".itemToPickup");
     const musicHolder = document.querySelector(".musicHolder");
-    const diceDiv = document.querySelector("#diceDiv");
 
     switch (pickedRoom) {
       case room1:
@@ -103,10 +101,10 @@ function renderRoom(target) {
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
         renderItems("frog");
-        loadDiceGame();
         break;
       case room3:
         roomPicker.classList.add("hide");
+        // roomText.innerHTML = scenes[3].text;
         loadSpecies();
         renderItems("cash");
         break;
@@ -114,6 +112,7 @@ function renderRoom(target) {
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[3].text;
+        response.textContent = scenes[3].subText;
         renderItems("dynamite");
         break;
     }

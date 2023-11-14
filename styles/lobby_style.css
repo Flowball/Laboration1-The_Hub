@@ -174,7 +174,7 @@ button {
   transform: translate(-50%);
   padding: 5px 15px;
   border-radius: 50px;
-  font-size: 0.6rem;
+  font-size: 1rem;
 }
 #notification.show {
   visibility: visible;
@@ -281,6 +281,11 @@ button {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+.fishTitle {
+  color: white;
+  background-color: #252629;
+  text-align: center;
 }
 @-webkit-keyframes fadein {
   from {

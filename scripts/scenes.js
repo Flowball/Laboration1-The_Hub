@@ -2,23 +2,20 @@ const scenes = [
   {
     id: 0,
     text: "Välkommen till Musikquiz",
-    itemToPickup: "knife",
     subText:
       "🎵Slå på ljud🎵 starta genom att klicka på PLAY, skriv sedan din gissning! ( slå enter )",
   },
   {
     id: 1,
-    text: "Välkommen till Tärningen",
-    itemToPickup: "ball",
+    text: "Välkommen till Målning",
   },
   {
     id: 2,
     text: "Välkommen till fiskar",
-    itemToPickup: "hat",
   },
   {
     id: 3,
     text: "Citatmaskin",
-    itemToPickup: "clock",
+    subText: "Vänta i 5 sekunder så laddar citat....",
   },
 ];

@@ -3,6 +3,10 @@ function loadSpecies() {
   const fishContainer = document.createElement("div");
   fishContainer.classList = "fishContainer";
   document.body.append(fishContainer);
+  const fishTitle = document.createElement("div");
+  fishTitle.classList = "fishTitle";
+  fishTitle.textContent = "Dynamiskt ladda in artiklar från data-blad";
+  fishContainer.append(fishTitle);
   const cardsDiv = document.createElement("div");
   fishContainer.append(cardsDiv);
   for (myObject of species) {
