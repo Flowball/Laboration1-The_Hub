@@ -16,7 +16,8 @@ const someMusic = [
   // },
 ];
 
-/** Music quiz function, takes data from music - object, data displayed and returned based on below logic  */
+/** Music quiz function, takes data from data-object(-> someMusic), data displayed and returned based on below logic.
+ * Unfortunately there is a bug so i will only present one song....  */
 const playBtn = document.querySelector("#musicBtn-1");
 const guessInput = document.querySelector("#guessInput");
 let songIndex = 0;

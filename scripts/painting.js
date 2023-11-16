@@ -1,3 +1,4 @@
+/** Function to display emojis from data-object where you click on the screen */
 function painting() {
   const circle = document.createElement("div");
   const canvas = document.querySelector(".canvas");

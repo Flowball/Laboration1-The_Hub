@@ -45,7 +45,7 @@ const quotes = [
 ];
 
 var index = 0;
-
+/** Function to loop through data and add classes, then loaded with the help of setInterval below */
 function loadQuotes() {
   if (playerState.roomNr === "room4") {
     if (index < quotes.length) {

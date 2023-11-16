@@ -1,3 +1,4 @@
+/** Data-object used as "products" for looping through items and displaying (see fish-button) */
 const species = [
   {
     id: 0,

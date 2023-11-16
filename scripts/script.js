@@ -9,10 +9,13 @@ const response = document.querySelector("#response");
 const secondResponse = document.querySelector("#secondResponse");
 const containerDiv = document.querySelector("#container");
 const invModal = document.querySelector(".invModal");
+const resetBtn = document.querySelector("#resetBtn");
 
 const playerState = {
   roomNr: "room0",
 };
+/** Eventlistener for reset-btn */
+resetBtn.addEventListener("click", resetAll);
 
 /** Set itemsArray to localstorage, this to keep track of pickedup true/false */
 function saveItemsToLS() {
@@ -44,7 +47,6 @@ function renderItems(pickUpItem) {
   }
 }
 
-// LÄGG TILL LOGIK FÖR ATT INJECTA TRUE VÄRDE PER ITEM VID KLICK.
 const itemHolder = document.querySelector("#test");
 itemHolder.addEventListener("click", (e) => {
   let selectedItem = e.target.id;

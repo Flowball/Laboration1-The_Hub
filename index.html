@@ -33,7 +33,7 @@
           <button id="closeMenu">CLOSE</button>
         </div>
         <div class="modal-item">
-          <button onclick="resetAll()">reset</button
+          <button id="resetBtn">reset</button
           ><span class="material-symbols-outlined"> chevron_right </span>
         </div>
 
@@ -58,11 +58,7 @@
       </div>
     </div>
     <div class="btn"><button id="inventoryBtn">INVENTORY 🎒</button></div>
-    <div
-      id="inventoryDiv"
-      class="hideMenu"
-      onclick="notification('NOTHING TO DO HERE SORRY')"
-    ></div>
+    <div id="inventoryDiv" class="hideMenu"></div>
 
     <div id="notification"></div>
     <div class="renderRoom1 playroom hide" id="playRoom">

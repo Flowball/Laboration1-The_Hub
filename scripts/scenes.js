@@ -1,3 +1,4 @@
+/** Data used for displaying data depending on which scene is rendered (rendered through script.js through swtich loop) */
 const scenes = [
   {
     id: 0,

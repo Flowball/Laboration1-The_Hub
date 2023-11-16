@@ -1,4 +1,4 @@
-/** Render species from data-sheet onto site (data sheet --> species_data.js*/
+/** Render species from data-object onto site (data-object --> species_data.js*/
 function loadSpecies() {
   const fishContainer = document.createElement("div");
   fishContainer.classList = "fishContainer";
