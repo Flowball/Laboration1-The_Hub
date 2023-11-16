@@ -1,19 +1,19 @@
 /** Object for items used for music quiz */
 const someMusic = [
   {
-    question: "Vem är artisten ?????",
+    question: "Vem är artisten som sjunger denna låt?",
     musicId: 0,
     songTitle: "Post Malone - Mourning",
     source: "audio/post_malone.mp3",
     correct: "POST MALONE",
   },
-  {
-    question: "Vem är artisten ?????",
-    musicId: 1,
-    songTitle: "Kent - En helt ny karriär II",
-    source: "audio/kent.mp3",
-    correct: "KENT",
-  },
+  // {
+  //   question: "Vem är artisten ?????",
+  //   musicId: 1,
+  //   songTitle: "Kent - En helt ny karriär II",
+  //   source: "audio/kent.mp3",
+  //   correct: "KENT",
+  // },
 ];
 
 /** Music quiz function, takes data from music - object, data displayed and returned based on below logic  */
@@ -32,8 +32,9 @@ function startMusicQuiz() {
   response.textContent = someMusic[`${songIndex}`].question;
   guessInput.addEventListener("change", () => {
     if (guessInput.value.toUpperCase() === someMusic[`${songIndex}`].correct) {
-      secondResponse.textContent = `korrekt svar!`;
-      playBtn.textContent = "Klicka för att spela nästa";
+      secondResponse.textContent = `🥳korrekt svar!🍾`;
+      playBtn.remove();
+      response.textContent = "";
       playBtn.addEventListener("click", () => {
         songIndex++;
         startMusicQuiz();

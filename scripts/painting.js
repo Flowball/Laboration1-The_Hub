@@ -1,26 +1,35 @@
-const userCardTemplate = document.querySelector("[data-user-template]");
-const userCardContainer = document.querySelector("[data-user-cards-container");
-const searchInput = document.querySelector("[data-search");
+function painting() {
+  const circle = document.createElement("div");
+  const canvas = document.querySelector(".canvas");
+  console.log(canvas);
+  circle.classList = "circle";
 
-let users = [];
-searchInput.addEventListener("input", (e) => {
-  const value = e.target.value.toLowerCase();
-  users.forEach((user) => {
-    const isVisible = user.title.toLowerCase().includes(value);
-    user.element.classList.toggle("hide", !isVisible);
+  document.addEventListener("click", (e) => {
+    circle.textContent = icons[iconIndex];
+    iconIndex++;
+    if (iconIndex >= icons.length) {
+      iconIndex = 0;
+    }
+
+    let xPos = e.x;
+    let yPos = e.y;
+    circle.style.left = xPos + "px";
+    circle.style.top = yPos + "px";
+    canvas.append(circle.cloneNode(true));
   });
-});
 
-fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
-  res.json().then((data) => {
-    users = data.map((user) => {
-      const card = userCardTemplate.content.cloneNode(true).children[0];
-      const header = card.querySelector("[data-header]");
-      const body = card.querySelector("[data-body]");
-      header.textContent = user.title;
-      body.textContent = user.completed;
-      userCardContainer.append(card);
-      return { title: user.title, completed: user.completed, element: card };
-    });
-  })
-);
+  let iconIndex = 0;
+  let icons = [
+    "👍",
+    "🔪",
+    "👩🏻‍🎤",
+    "🥺",
+    "🤓",
+    "👹",
+    "🤡",
+    "🎃",
+    "🤳",
+    "🍌",
+    "🇸🇪",
+  ];
+}

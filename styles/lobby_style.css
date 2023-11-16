@@ -287,6 +287,17 @@ button {
   background-color: #252629;
   text-align: center;
 }
+
+#secondResponse {
+  background-color: #252629;
+  font-size: 1.5rem;
+  /* padding: 1rem; */
+  color: white;
+}
+#guessInput {
+  font-size: 1.5rem;
+  margin: 1.5rem;
+}
 @-webkit-keyframes fadein {
   from {
     bottom: 0;

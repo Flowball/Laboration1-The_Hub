@@ -8,6 +8,7 @@ const scenes = [
   {
     id: 1,
     text: "Välkommen till Målning",
+    subText: "Klicka runt för att måla med emojis...",
   },
   {
     id: 2,

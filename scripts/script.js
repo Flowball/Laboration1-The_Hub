@@ -8,7 +8,6 @@ const roomBtns = document.getElementsByClassName("roomBtn");
 const response = document.querySelector("#response");
 const secondResponse = document.querySelector("#secondResponse");
 const containerDiv = document.querySelector("#container");
-
 const invModal = document.querySelector(".invModal");
 
 const playerState = {
@@ -86,6 +85,7 @@ function renderRoom(target) {
     const roomText = document.querySelector("#roomText");
     const roomSubtext = document.querySelector("#roomSubText");
     const musicHolder = document.querySelector(".musicHolder");
+    const container = document.querySelector("#container");
 
     switch (pickedRoom) {
       case room1:
@@ -100,11 +100,13 @@ function renderRoom(target) {
         roomPicker.classList.add("hide");
         playRoom.classList.remove("hide");
         roomText.innerHTML = scenes[1].text;
+        roomSubtext.innerHTML = scenes[1].subText;
+        container.classList.add("canvas");
+        painting();
         renderItems("frog");
         break;
       case room3:
         roomPicker.classList.add("hide");
-        // roomText.innerHTML = scenes[3].text;
         loadSpecies();
         renderItems("cash");
         break;
