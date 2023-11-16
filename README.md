@@ -1,6 +1,7 @@
 # The HUB
 
 This is a submission task for my front-end developer course
+
 _Studying at Medieinstitutet_
 
 ## The HUB contains the following
