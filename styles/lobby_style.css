@@ -150,6 +150,7 @@ a {
   padding: 10px 15px;
   background-color: steelblue;
   border-radius: 30px;
+  font-size: 2rem;
 }
 
 #invItem:active {

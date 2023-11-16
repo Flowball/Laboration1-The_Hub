@@ -3,7 +3,20 @@
 This is a submission task for my front-end developer course
 _Studying at Medieinstitutet_
 
-## The HUB contains the following rooms
+## The HUB contains the following
+
+A system to pick up items, with no real reason or reward, look for emojis randomly placed on each pages 😼
+
+An Inventory where picked up items is displayed 🎒
+
+_Burger Menu_
+
+- Reset button to reset progress of inventory and refresh page
+- Dark/light theme button toggle 🌓
+
+Dark/light theme button
+
+_Rooms_
 
 - Music
   - Contains one song for user to guess.
@@ -16,6 +29,4 @@ _Studying at Medieinstitutet_
 
 ## Run the project
 
-`run with live server`
-
-[INDEX FILE](index.html)
+`download repo and run with live server`

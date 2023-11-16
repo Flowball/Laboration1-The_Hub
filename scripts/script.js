@@ -132,7 +132,7 @@ function renderInventory() {
   for (item of items) {
     if (item.pickedUpStatus === true) {
       invDiv.id = "invItem";
-      invDiv.textContent = item.name;
+      invDiv.textContent = item.icon;
       invItem.appendChild(invDiv.cloneNode(true));
     }
   }
