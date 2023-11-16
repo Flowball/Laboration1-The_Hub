@@ -30,4 +30,6 @@ _Rooms_
 
 ## Run the project
 
+[GitHub Pages LINK](https://flowball.github.io/Laboration1-The_Hub/)
+
 `download repo and run with live server`
